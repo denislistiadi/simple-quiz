@@ -53,7 +53,7 @@ function App() {
     }, 1000);
 
     if (hideTimer && timer === 0) {
-      if (questionIndex + 1 <= question.length) {
+      if ((questionIndex + 1) < question.length) {
         setQuestionIndex(questionIndex + 1);
         setTimer(30);
       } else {
