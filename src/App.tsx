@@ -51,11 +51,17 @@ function App() {
     const timeout = setInterval(() => {
       setTimer(timer - 1);
     }, 1000);
+
     if (hideTimer && timer === 0) {
-      setHideScore(true);
-      setHideQuiz(false);
-      setHideTimer(false);
-      setLoading(true);
+      if (questionIndex + 1 <= question.length) {
+        setQuestionIndex(questionIndex + 1);
+        setTimer(30);
+      } else {
+        setHideScore(true);
+        setHideQuiz(false);
+        setHideTimer(false);
+        setLoading(true);
+      }
     }
 
     return () => {
@@ -142,7 +148,7 @@ function App() {
         <div className="bg-white m-auto max-w-md mx-4 pt-12 relative rounded-2xl shadow-xl">
           {hideTimer && !loading && (
             <p className="absolute px-2 py-1 rounded-full bg-fuchsia-500 text-white text-lg top-4 left-4">
-              {timer}
+              {timer < 10 ? "0" + timer : timer}
             </p>
           )}
           <img
