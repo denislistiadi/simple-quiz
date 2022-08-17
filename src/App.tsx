@@ -182,7 +182,7 @@ function App() {
           {hideScore && !loading && (
             <Score score={state.point} click={() => toBeLeaderbard()} />
           )}
-          {hideLeaderboard && !loading && <Ranking data={data} />}
+          {hideLeaderboard && !loading && <Ranking data={data.sort((a,b) => a.point - b.point).reverse()} />}
 
           {loading && <Loading />}
         </div>

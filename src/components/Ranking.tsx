@@ -17,12 +17,12 @@ const Ranking = (props: dataProps) => {
         {props.data.map((item: any, index: number) => (
           <div
             key={index}
-            className="flex flex-row gap-3 items-center border p-2 rounded-md"
+            className="flex first:font-bold flex-row gap-3 items-center border p-2 rounded-md"
           >
             <p className="text-base">{index + 1}</p>
             <div className="flex flex-row justify-between w-full">
               <p>{item.name}</p>
-              <p className="font-bold text-violet-800">{item.point}</p>
+              <p className="font-bold first:font-extrabold text-violet-800">{item.point}</p>
             </div>
           </div>
         ))}

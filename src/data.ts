@@ -4,11 +4,11 @@ export const data = [
     point: 80,
   },
   {
-    name: "Ahmad Multazam",
-    point: 70,
-  },
-  {
     name: "Suswita",
     point: 60,
+  },
+  {
+    name: "Ahmad Multazam",
+    point: 70,
   },
 ];
