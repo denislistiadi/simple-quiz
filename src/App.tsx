@@ -30,6 +30,13 @@ function App() {
   const [hideScore, setHideScore] = useState(false);
   const [hideLeaderboard, setHideLeaderboard] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState([]);
+
+  useEffect(() => {
+    data.sort((a: any, b: any) => {
+      return a.point - b.point;
+    }).reverse();
+  }, [data])
 
   // handle Loading
   useEffect(() => {
@@ -138,6 +145,12 @@ function App() {
     setHideLeaderboard(true);
     setLoading(true);
   };
+  
+  const sortData = () => {
+    data.sort((a: any, b: any) => {
+      return b.point - a.point;
+    });
+  }
 
   return (
     <div className="bg-[url('/src/assets/background.webp')] bg-cover  bg-no-repeat font-monospace m-auto h-full ">
@@ -182,7 +195,7 @@ function App() {
           {hideScore && !loading && (
             <Score score={state.point} click={() => toBeLeaderbard()} />
           )}
-          {hideLeaderboard && !loading && <Ranking data={data.sort().reverse()} />}
+          {hideLeaderboard && !loading && <Ranking data={data} />}
 
           {loading && <Loading />}
         </div>
